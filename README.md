@@ -1,5 +1,5 @@
 <h1 align="center">
-	📖 ft_printf
+	✏️ ft_printf
 </h1>
 
 <p align="center">
