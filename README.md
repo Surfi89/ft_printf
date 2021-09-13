@@ -58,12 +58,6 @@ To use the library functions in your code, simply include its header:
 #include "ft_printf.h"
 ```
 
-and, when compiling your code, add the required flags:
-
-```shell
--lftprintf -L path_to_libftprintf.a -I path_to_ft_printf.h
-```
-
 ## 📋 Testing
 
 You can use this third party tester to fully test the project:
