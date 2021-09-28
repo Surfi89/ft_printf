@@ -6,7 +6,7 @@
 /*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 13:20:43 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/09/13 10:56:31 by ajordan-         ###   ########.fr       */
+/*   Updated: 2021/09/28 09:43:59 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,16 @@ void	ft_put_ptr(uintptr_t num)
 
 int	ft_print_ptr(unsigned long long ptr)
 {
-	int	print_lengh;
+	int	print_length;
 
-	print_lengh = 0;
-	print_lengh += write(1, "0x", 2);
+	print_length = 0;
+	print_length += write(1, "0x", 2);
 	if (ptr == 0)
-		print_lengh += write(1, "0", 1);
+		print_length += write(1, "0", 1);
 	else
 	{
 		ft_put_ptr(ptr);
-		print_lengh += ft_ptr_len(ptr);
+		print_length += ft_ptr_len(ptr);
 	}
-	return (print_lengh);
+	return (print_length);
 }

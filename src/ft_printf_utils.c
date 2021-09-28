@@ -6,7 +6,7 @@
 /*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 13:40:58 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/09/13 10:59:03 by ajordan-         ###   ########.fr       */
+/*   Updated: 2021/09/28 09:50:32 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ int	ft_printnbr(int n)
 
 int	ft_printpercent(void)
 {
-	write(1, "%%", 1);
+	write(1, "%", 1);
 	return (1);
 }

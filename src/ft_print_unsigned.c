@@ -6,7 +6,7 @@
 /*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 10:50:18 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/09/13 10:53:21 by ajordan-         ###   ########.fr       */
+/*   Updated: 2021/09/28 09:44:47 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,17 @@ char	*ft_uitoa(unsigned int n)
 
 int	ft_print_unsigned(unsigned int n)
 {
-	int		print_lengh;
+	int		print_length;
 	char	*num;
 
-	print_lengh = 0;
+	print_length = 0;
 	if (n == 0)
-		print_lengh += write(1, "0", 1);
+		print_length += write(1, "0", 1);
 	else
 	{
 		num = ft_uitoa(n);
-		print_lengh += ft_printstr(num);
+		print_length += ft_printstr(num);
 		free(num);
 	}
-	return (print_lengh);
+	return (print_length);
 }
