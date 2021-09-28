@@ -44,10 +44,10 @@ The function is written in C language and thus needs the **`gcc` compiler** and 
 
 **1. Compiling the library**
 
-To compile the library, run:
+To compile, go to the library path and run:
 
 ```shell
-$ cd path_to_ft_printf && make
+$ make
 ```
 
 **2. Using it in your code**
