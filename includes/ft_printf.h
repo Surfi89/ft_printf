@@ -6,7 +6,7 @@
 /*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 12:00:00 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/09/27 13:52:05 by ajordan-         ###   ########.fr       */
+/*   Updated: 2021/10/19 14:51:38 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include "../includes/libft.h"
 
 int		ft_printf(const char *format, ...);
 int		ft_formats(va_list args, const char format);

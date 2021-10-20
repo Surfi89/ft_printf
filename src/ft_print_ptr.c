@@ -6,11 +6,12 @@
 /*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 13:20:43 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/09/28 09:43:59 by ajordan-         ###   ########.fr       */
+/*   Updated: 2021/10/19 14:54:45 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 int	ft_ptr_len(uintptr_t num)
 {

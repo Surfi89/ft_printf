@@ -6,11 +6,12 @@
 /*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 12:19:52 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/09/13 10:55:57 by ajordan-         ###   ########.fr       */
+/*   Updated: 2021/10/19 14:54:04 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 int	ft_hex_len(unsigned	int num)
 {

@@ -6,7 +6,7 @@
 #    By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/06 09:51:37 by ajordan-          #+#    #+#              #
-#    Updated: 2021/09/27 13:56:08 by ajordan-         ###   ########.fr        #
+#    Updated: 2021/10/20 02:05:17 by ajordan-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ NAME		= libftprintf.a
 INCLUDES	= includes
 LIBFT		= libft
 SRCS_DIR	= src/
-OBJS_DIR	= bin/
+OBJS_DIR	= obj/
 CC			= gcc
-CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		= -Wall -Werror -Wextra -I
 RM			= rm -f
 AR			= ar rcs
 
@@ -36,42 +36,47 @@ WHITE = \033[0;97m
 
 #Sources
 
-SRC_FILES	= ft_printf.c ft_printf_utils.c ft_print_ptr.c ft_print_unsigned.c ft_print_hex.c
+SRC_FILES	=	ft_printf ft_printf_utils ft_print_ptr ft_print_unsigned ft_print_hex
 
-#Binary
 
-SRCS 		= $(addprefix $(SRCS_DIR), $(SRC_FILES))
-OBJS 		= $(SRC_FILES:.c=.o) 
-OBJS_PREFIX	= $(addprefix $(OBJS_DIR), $(OBJS))
+SRCS 		= 	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRC_FILES)))
+OBJS 		= 	$(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))
 
 ###
 
+OBJSF		=	.cache_exists
+
 all:			$(NAME)
 
-$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
-				@mkdir -p $(OBJS_DIR)
-				@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
-				@$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
-
-$(NAME):		$(OBJS_PREFIX) $(OBJS_DIR) $(INCLUDES)
+$(NAME):		$(OBJS) $(OBJS_DIR) $(INCLUDES)
 				@make -C $(LIBFT)
 				@cp libft/libft.a .
 				@mv libft.a $(NAME)
-				@$(AR) $(NAME) $(OBJS_PREFIX)
+				@$(AR) $(NAME) $(OBJS)
 				@echo "$(GREEN)ft_printf compiled!$(DEF_COLOR)"
 
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c | $(OBJSF)
+				@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+				@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(OBJSF):
+			@mkdir -p $(OBJS_DIR)
+
 clean:
-				@$(RM) -r $(OBJS_DIR)
+				@$(RM) -rf $(OBJS_DIR)
 				@make clean -C $(LIBFT)
-				@echo "$(BLUE)ft_print binary files cleaned!$(DEF_COLOR)"
+				@echo "$(BLUE)ft_printf object files cleaned!$(DEF_COLOR)"
 
 fclean:			clean
-				@$(RM) $(NAME)
-				@$(RM) $(LIBFT)/libft.a
+				@$(RM) -f $(NAME)
+				@$(RM) -f $(LIBFT)/libft.a
 				@echo "$(CYAN)ft_printf executable files cleaned!$(DEF_COLOR)"
 				@echo "$(CYAN)libft executable files cleaned!$(DEF_COLOR)"
 
 re:				fclean all
 				@echo "$(GREEN)Cleaned and rebuilt everything for ft_printf!$(DEF_COLOR)"
 
-.PHONY:			all clean fclean re
+norm:
+	@norminette $(SRCS) $(INCLUDES) $(LIBFT) | grep -v Norme -B1 || true
+
+.PHONY:			all clean fclean re norm

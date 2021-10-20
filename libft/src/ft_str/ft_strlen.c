@@ -1,63 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 13:40:58 by ajordan-          #+#    #+#             */
-/*   Updated: 2021/10/19 14:53:21 by ajordan-         ###   ########.fr       */
+/*   Created: 2021/07/19 13:12:29 by ajordan-          #+#    #+#             */
+/*   Updated: 2021/10/19 14:04:34 by ajordan-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+/*
+*	LIBRARY
+*	#include <string.h>
+*	DESCRIPTION
+*	The strlen() function computes the length of the string s.
+*	PARAMETERS
+*	#1. The string to compute length.
+*	RETURN VALUES
+*	The strlen() function returns the number of characters that precede the 
+*	terminating NUL character.  
+*/
+
 #include "libft.h"
 #include <stdlib.h>
 
-void	ft_putstr(char *str)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (str[i])
-	{
-		write(1, &str[i], 1);
+	while (s[i] != 0)
 		i++;
-	}
-}
-
-int	ft_printstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str == NULL)
-	{
-		ft_putstr("(null)");
-		return (6);
-	}
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
 	return (i);
-}
-
-int	ft_printnbr(int n)
-{
-	int		len;
-	char	*num;
-
-	len = 0;
-	num = ft_itoa(n);
-	len = ft_printstr(num);
-	free(num);
-	return (len);
-}
-
-int	ft_printpercent(void)
-{
-	write(1, "%", 1);
-	return (1);
 }
