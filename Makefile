@@ -6,17 +6,17 @@
 #    By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/06 09:51:37 by ajordan-          #+#    #+#              #
-#    Updated: 2021/10/20 02:24:16 by ajordan-         ###   ########.fr        #
+#    Updated: 2021/10/20 02:40:28 by ajordan-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Variables
 
 NAME		= libftprintf.a
-INCLUDES	= include
+INCLUDE	= include
 LIBFT		= libft
-SRCS_DIR	= src/
-OBJS_DIR	= obj/
+SRC_DIR	= src/
+OBJ_DIR	= obj/
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra -I
 RM			= rm -f
@@ -39,31 +39,31 @@ WHITE = \033[0;97m
 SRC_FILES	=	ft_printf ft_printf_utils ft_print_ptr ft_print_unsigned ft_print_hex
 
 
-SRCS 		= 	$(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRC_FILES)))
-OBJS 		= 	$(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))
+SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
+OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 
 ###
 
-OBJSF		=	.cache_exists
+OBJF		=	.cache_exists
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS) $(OBJS_DIR) $(INCLUDES)
+$(NAME):		$(OBJ) $(OBJ_DIR) $(INCLUDE)
 				@make -C $(LIBFT)
 				@cp libft/libft.a .
 				@mv libft.a $(NAME)
-				@$(AR) $(NAME) $(OBJS)
+				@$(AR) $(NAME) $(OBJ)
 				@echo "$(GREEN)ft_printf compiled!$(DEF_COLOR)"
 
-$(OBJS_DIR)%.o: $(SRCS_DIR)%.c | $(OBJSF)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
 				@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
-				@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+				@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-$(OBJSF):
-			@mkdir -p $(OBJS_DIR)
+$(OBJF):
+			@mkdir -p $(OBJ_DIR)
 
 clean:
-				@$(RM) -rf $(OBJS_DIR)
+				@$(RM) -rf $(OBJ_DIR)
 				@make clean -C $(LIBFT)
 				@echo "$(BLUE)ft_printf object files cleaned!$(DEF_COLOR)"
 
@@ -77,6 +77,6 @@ re:				fclean all
 				@echo "$(GREEN)Cleaned and rebuilt everything for ft_printf!$(DEF_COLOR)"
 
 norm:
-	@norminette $(SRCS) $(INCLUDES) $(LIBFT) | grep -v Norme -B1 || true
+	@norminette $(SRC) $(INCLUDE) $(LIBFT) | grep -v Norme -B1 || true
 
 .PHONY:			all clean fclean re norm
