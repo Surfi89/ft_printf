@@ -6,14 +6,14 @@
 #    By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/06 09:51:37 by ajordan-          #+#    #+#              #
-#    Updated: 2021/10/20 02:05:17 by ajordan-         ###   ########.fr        #
+#    Updated: 2021/10/20 02:24:16 by ajordan-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Variables
 
 NAME		= libftprintf.a
-INCLUDES	= includes
+INCLUDES	= include
 LIBFT		= libft
 SRCS_DIR	= src/
 OBJS_DIR	= obj/

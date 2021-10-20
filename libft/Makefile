@@ -6,14 +6,14 @@
 #    By: ajordan- <ajordan-@student.42urduliz.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/27 09:39:13 by ajordan-          #+#    #+#              #
-#    Updated: 2021/10/20 02:07:04 by ajordan-         ###   ########.fr        #
+#    Updated: 2021/10/20 02:25:41 by ajordan-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Standard
 
 NAME		=	libft.a
-INCLUDES	=	../includes
+INCLUDES	=	../include
 SRCS_DIR 	=	src/
 OBJS_DIR	=	obj/
 CC			=	gcc
